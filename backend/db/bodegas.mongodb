@@ -1,0 +1,417 @@
+
+//🪙Construccion de la Base de Datos de MongoDB🪙
+
+use("db_Bodegas");
+
+//🚧🧑‍🦰Creacion de la coleccion Users🧑‍🦰🚧
+
+use("db_Bodegas");
+db.createCollection("users", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "nombre",
+                "email",
+                "email_verified_at",
+                "estado",
+                "created_by",
+                "update_by",
+                "foto", 
+                "password",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+            ],
+           title: "users Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                nombre: { 
+                    bsonType: "string" , 
+                    description: "'Nombre' must be of type string",
+                    maxLength: 255
+                },
+
+                email: { 
+                    bsonType: "string" , 
+                    pattern : "@mongodb\.com$",
+                    description: "'email' must be an email of less than 250 characters",
+                    maxLength: 255
+                },
+
+                email_verified_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'Estado' must be of type date"
+                },
+
+                estado: { 
+                    bsonType: "string" , 
+                    description: "'estado' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'created_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                update_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'update_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                foto: { 
+                    bsonType: [ "null", "string" ] , 
+                    description: "'foto' must be of type string",
+                    maxLength: 255
+                },
+
+                password: { 
+                    bsonType: "string" , 
+                    description: "'password' must be of type string",
+                    maxLength: 255
+                },
+
+                created_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'created_at' must be of type date"
+                },
+
+                updated_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'updated_at' must be of type date"
+                },
+
+                deleted_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'deleted_at' must be of type date"
+                }
+           }
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+//🚧📽️Creacion de la coleccion Productos📽️🚧
+
+use("db_Bodegas");
+db.createCollection("productos", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "nombre",
+                "descripcion",
+                "estado",
+                "created_by",
+                "update_by",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+            ],
+           title: "productos Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                nombre: { 
+                    bsonType: "string" , 
+                    description: "'nombre' must be of type string",
+                    maxLength: 255
+                },
+
+                descripcion: { 
+                    bsonType: "string" , 
+                    description: "'descripcion' must be of type string",
+                    maxLength: 255
+                },
+
+                estado: { 
+                    bsonType: "number" , 
+                    description: "'estado' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'created_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                update_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'update_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'created_at' must be of type date"
+                },
+
+                updated_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'updated_at' must be of type date"
+                },
+
+                deleted_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'deleted_at' must be of type date"
+                }
+           }
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+//🚧🏗️Creacion de la coleccion Inventarios🏗️🚧
+
+use("db_Bodegas");
+db.createCollection("inventarios", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "id_bodega",
+                "id_producto",
+                "cantidad",
+                "created_by",
+                "update_by",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+            ],
+           title: "inventarios Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_bodega: { 
+                    bsonType: "number" , 
+                    description: "'id_bodega' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_producto: { 
+                    bsonType: "number" , 
+                    description: "'id_producto' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                cantidad: { 
+                    bsonType: "number" , 
+                    description: "'cantidad' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'created_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                update_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'update_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'created_at' must be of type date"
+                },
+
+                updated_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'updated_at' must be of type date"
+                },
+
+                deleted_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'deleted_at' must be of type date"
+                }
+           }
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+//🚧🌃Creacion de la coleccion Bodegas🌃🚧
+
+use("db_Bodegas");
+db.createCollection("bodegas", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "nombre",
+                "id_responsable",
+                "estado",
+                "created_by",
+                "update_by",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+            ],
+           title: "bodegas Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                nombre: { 
+                    bsonType: "string" , 
+                    description: "'nombre' must be of type string",
+                    maxLength: 255
+                },
+
+                id_responsable: { 
+                    bsonType: "number" , 
+                    description: "'id_responsable' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                estado: { 
+                    bsonType: "number" , 
+                    description: "'estado' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'created_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                update_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'update_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'created_at' must be of type date"
+                },
+
+                updated_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'updated_at' must be of type date"
+                },
+
+                deleted_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'deleted_at' must be of type date"
+                }
+           }
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+//🚧🧾Creacion de la coleccion historiales🧾🚧
+
+use("db_Bodegas");
+db.createCollection("historiales", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "cantidad",
+                "id_bodega_origen",
+                "id_bodega_destino",
+                "id_inventario",
+                "created_by",
+                "update_by",
+                "created_at",
+                "updated_at",
+                "deleted_at"
+            ],
+           title: "historiales Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                cantidad: { 
+                    bsonType: "number" , 
+                    description: "'cantidad' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_bodega_origen: { 
+                    bsonType: "number" , 
+                    description: "'id_bodega_origen' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_bodega_destino: { 
+                    bsonType: "number" , 
+                    description: "'id_bodega_destino' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_inventario: { 
+                    bsonType: "number" , 
+                    description: "'id_inventario' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'created_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                update_by: { 
+                    bsonType: [ "null", "number" ] , 
+                    description: "'update_by' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                created_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'created_at' must be of type date"
+                },
+
+                updated_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'updated_at' must be of type date"
+                },
+
+                deleted_at: { 
+                    bsonType: [ "null", "date" ] , 
+                    description: "'deleted_at' must be of type date"
+                }
+           }
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
