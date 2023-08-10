@@ -34,14 +34,15 @@ db.createCollection("users", {
 
                 nombre: { 
                     bsonType: "string" , 
-                    description: "'Nombre' must be of type string",
+                    description: "'Nombre' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
                     maxLength: 255
                 },
 
                 email: { 
                     bsonType: "string" , 
-                    pattern : "@mongodb\.com$",
-                    description: "'email' must be an email of less than 250 characters",
+                    pattern : "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+                    description: "'email' must be an email of less than 255 characters",
                     maxLength: 255
                 },
 
@@ -51,7 +52,7 @@ db.createCollection("users", {
                 },
 
                 estado: { 
-                    bsonType: "string" , 
+                    bsonType: "number" , 
                     description: "'estado' must be of type number",
                     pattern: "^[1-9][0-9]*$"
                 },
@@ -129,13 +130,15 @@ db.createCollection("productos", {
 
                 nombre: { 
                     bsonType: "string" , 
-                    description: "'nombre' must be of type string",
+                    description: "'nombre' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
                     maxLength: 255
                 },
 
                 descripcion: { 
                     bsonType: "string" , 
-                    description: "'descripcion' must be of type string",
+                    description: "'descripcion' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
                     maxLength: 255
                 },
 
@@ -283,7 +286,8 @@ db.createCollection("bodegas", {
 
                 nombre: { 
                     bsonType: "string" , 
-                    description: "'nombre' must be of type string",
+                    description: "'nombre' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 .]+$",
                     maxLength: 255
                 },
 
