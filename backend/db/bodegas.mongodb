@@ -95,7 +95,8 @@ db.createCollection("users", {
                     bsonType: [ "null", "date" ] , 
                     description: "'deleted_at' must be of type date"
                 }
-           }
+           },
+           additionalProperties: false
         }
     },
     validationAction: "error",
@@ -174,7 +175,8 @@ db.createCollection("productos", {
                     bsonType: [ "null", "date" ] , 
                     description: "'deleted_at' must be of type date"
                 }
-           }
+           },
+           additionalProperties: false
         }
     },
     validationAction: "error",
@@ -251,7 +253,8 @@ db.createCollection("inventarios", {
                     bsonType: [ "null", "date" ] , 
                     description: "'deleted_at' must be of type date"
                 }
-           }
+           },
+           additionalProperties: false
         }
     },
     validationAction: "error",
@@ -329,7 +332,8 @@ db.createCollection("bodegas", {
                     bsonType: [ "null", "date" ] , 
                     description: "'deleted_at' must be of type date"
                 }
-           }
+           },
+           additionalProperties: false
         }
     },
     validationAction: "error",
@@ -413,7 +417,8 @@ db.createCollection("historiales", {
                     bsonType: [ "null", "date" ] , 
                     description: "'deleted_at' must be of type date"
                 }
-           }
+           },
+           additionalProperties: false
         }
     },
     validationAction: "error",
