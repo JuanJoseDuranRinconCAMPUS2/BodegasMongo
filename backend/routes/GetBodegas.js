@@ -8,7 +8,7 @@ let db = await con();
 AppGBodegas.get('/', limitGColecciones(), async (req, res) =>{
     if(!req.rateLimit) return;
     let alquiler = db.collection("bodegas");
-    let result = await alquiler.find({}).sort( { _id: 1 } ).toArray();
+    let result = await alquiler.find({}).sort( { nombre: 1  } ).toArray();
     res.send(result)
 
 })
