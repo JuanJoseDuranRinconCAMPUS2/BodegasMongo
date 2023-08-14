@@ -1,6 +1,6 @@
 {
   "name": "backend",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Backend para la creacion de una api que manipule la informacion de una base de datos de bodegas en MONGODB",
   "main": "app.js",
   "type": "module",
