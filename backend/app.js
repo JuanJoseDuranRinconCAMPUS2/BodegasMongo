@@ -5,6 +5,7 @@ import AppPBodegas from './routes/PostBodegas.js';
 import AppGProductos from './routes/GetProductosXTotal.js';
 import AppProductoInv from './routes/PostProductoInv.js';
 import AppPInven from './routes/PostInventarios.js';
+import AppTransladoProduct from './routes/TransladoProductos.js';
 console.clear();
 dotnev.config();
 
@@ -18,6 +19,8 @@ BodegasApi.use('/GetProductosXTotal', AppGProductos);
 BodegasApi.use('/PostProductoInventario', AppProductoInv);
 BodegasApi.use('/PostProductoInventario', AppProductoInv);
 BodegasApi.use('/PostInventario', AppPInven);
+BodegasApi.use('/TransladoProductos', AppTransladoProduct);
+
 
 
 // ════════ ⋆★⋆ ════════
