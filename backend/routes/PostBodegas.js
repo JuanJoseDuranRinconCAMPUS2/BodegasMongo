@@ -5,7 +5,7 @@ import { con } from '../db/atlas.js';
 const AppPBodegas = Router();
 let db = await con();
 
-function ErrorText(error) {
+export function ErrorText(error) {
     let errorD =error[1];
     let text = "Errores encontrados: "
     error.forEach(errores => {
@@ -37,7 +37,7 @@ function ErrorText(error) {
     return text;
 }
 AppPBodegas.post('/', limitPColecciones(180, "bodegas"),async (req, res) =>{
-    // if(!req.rateLimit) return;
+    if(!req.rateLimit) return;
     let bodegas = db.collection("bodegas");
     try {
         let data = {...req.body, update_by : null, created_at: new Date(), updated_at: null, deleted_at: null}
