@@ -1,8 +1,7 @@
 import { Router } from "express";
 import { limitPColecciones } from "../limit/limit.js";
 import { con } from '../db/atlas.js';
-import { ErrorText } from "./PostBodegas.js";
-
+import errorcontroller from "../controllers/ErroresMongo.js";
 const AppPInven = Router();
 let db = await con();
 let inventarios = db.collection("inventarios");
@@ -29,19 +28,4 @@ AppPInven.post('/', limitPColecciones(180, "inventarios"),async (req, res) =>{
     }
 })
 
-function errorcontroller(error, res) {
-    switch (error.code) {
-        case 121:
-            const ErrorL = error.errInfo.details.schemaRulesNotSatisfied;
-            res.status(500).send({status: 500, message: ErrorText(ErrorL)});
-        break;
-        
-        case 11000:
-            res.status(500).send({status: 500, message:`Error al guardar la data, _id ya se encuentra en uso`});        
-        break;
-        default:
-            res.status(500).send({ status: 500, message: "Error al guardar la data" });
-        break;
-    }
-}
 export default AppPInven;

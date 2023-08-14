@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { limitPColecciones } from "../limit/limit.js";
-import { ErrorText } from "./PostBodegas.js";
 import { con } from '../db/atlas.js';
+import errorcontroller from "../controllers/ErroresMongo.js";
 
 const AppProductoInv = Router();
 let db = await con();
@@ -28,19 +28,7 @@ AppProductoInv.post('/', limitPColecciones(200, "productos"),async (req, res) =>
           });
         res.status(200).send({status: 200, message: "Data enviada Correctamente"});
       } catch (error) {
-        switch (error.code) {
-            case 121:
-                const ErrorL = error.errInfo.details.schemaRulesNotSatisfied;
-                res.status(500).send({status: 500, message: ErrorText(ErrorL)});
-            break;
-            
-            case 11000:
-                res.status(500).send({status: 500, message:`Error al guardar la data, _id ya se encuentra en uso`});        
-            break;
-            default:
-                res.status(500).send({ status: 500, message: "Error al guardar la data" });
-            break;
-        }
+        errorcontroller(error, res);
       }
 
 })
