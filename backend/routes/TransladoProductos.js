@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { limitPColecciones } from "../limit/limit.js";
 import { con } from '../db/atlas.js';
-import errorcontroller from "../controllers/ErroresMongo.js";
+import errorcontroller from "../middleware/ErroresMongo.js";
 import { proxyTransladoProductos } from "../middleware/proxyTransladoProductos.js";
 
 const AppTransladoProduct = Router();
