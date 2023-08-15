@@ -2,13 +2,14 @@ import { Router } from "express";
 import { limitPColecciones } from "../limit/limit.js";
 import { con } from '../db/atlas.js';
 import errorcontroller from "../controllers/ErroresMongo.js";
+import { proxyTransladoProductos } from "../middleware/proxyTransladoProductos.js";
 
 const AppTransladoProduct = Router();
 let db = await con();
 let inventarios = db.collection("inventarios");
 let historiales = db.collection("historiales");
 
-AppTransladoProduct.post('/', limitPColecciones(200, "inventarios"),async (req, res) =>{
+AppTransladoProduct.post('/', limitPColecciones(280, "inventarios"), proxyTransladoProductos, async (req, res) =>{
     if(!req.rateLimit) return;
     const { historiales_id, id_bodegaOrigen, id_bodegaFinal, id_producto, cantidad, created_by } = req.body;
     let validacionId = await historiales.findOne({ _id: historiales_id});
