@@ -424,3 +424,144 @@ db.createCollection("historiales", {
     validationAction: "error",
     validationLevel: "strict",
 });
+
+//🕵️Construccion Validaciones y Usuarios🕵️
+
+//🚧👩‍💻Creacion de la coleccion Users👩‍💻🚧
+
+use("db_Bodegas");
+db.createCollection("usuario_Api", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "nombre",
+                "email",
+                "password",
+                "codigo_Rol"
+            ],
+           title: "usuario_Api Validation",
+           properties: {
+                _id: { 
+                    bsonType: "number" , 
+                    description: "'_id' must be of type number",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                nombre: { 
+                    bsonType: "string" , 
+                    description: "'nombre' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
+                    maxLength: 255
+                },
+
+                email: { 
+                    bsonType: "string" , 
+                    pattern : "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
+                    description: "'email' must be an email of less than 255 characters",
+                    maxLength: 255
+                },
+
+                password: { 
+                    bsonType: "string" , 
+                    description: "'password' must be of type string.",
+                    maxLength: 255
+                },
+
+                codigo_Rol: { 
+                    bsonType: "string" , 
+                    description: "'codigo_Rol' must be a valid code",
+                    pattern: "^(CsWscIpEhqmr1987|CsWscYrYwyvemws22501)$"
+                },
+           },
+           additionalProperties: false
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+//🚧🔎Creacion de la coleccion roles_Api🔎🚧
+
+use("db_Bodegas");
+db.createCollection("roles_Api", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "rol",
+                "acceso"
+            ],
+           title: "roles_Api Validation",
+           properties: {
+                _id: { 
+                    bsonType: "string" , 
+                    description: "'_id' must be of type string",
+                    pattern: "^(CsWscIpEhqmr1987|CsWscYrYwyvemws22501)$"
+                },
+
+                rol: { 
+                    bsonType: "string" , 
+                    description: "'rol' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
+                    maxLength: 20
+                },
+
+                acceso: { 
+                    bsonType: "string" , 
+                    description: "'acceso' must be of type string with letters and numbers.",
+                    pattern: "^[a-zA-Z0-9 ]+$",
+                    maxLength: 200
+                }
+           },
+           additionalProperties: false
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
+
+// el codigo de codigo "CsWscIpEhqmr1987" es una encriptacion con cifrado cesar con desplazamiento 4, la palabra original es "YoSoyElAdmin1987"
+// el codigo de codigo "CsWscYrYwyvemws22501" es una encriptacion con cifrado cesar con desplazamiento 4, la palabra original es "YoSoyUnUsuario22501"
+
+
+//🚧🎫Creacion de la coleccion tokens_Api🎫🚧
+
+use("db_Bodegas");
+db.createCollection("tokens_Api", {
+    validator: {
+        $jsonSchema: {
+           bsonType: "object",
+           required: [ 
+                "_id",
+                "id_usuario_Api",
+                "token"
+            ],
+           title: "tokens_Api Validation",
+           properties: {
+                _id: { 
+                    bsonType: "string" , 
+                    description: "'_id' must be of type string",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                id_usuario_Api: { 
+                    bsonType: "string" , 
+                    description: "'id_usuario_Api' must be of type string",
+                    pattern: "^[1-9][0-9]*$"
+                },
+
+                token: { 
+                    bsonType: "string" , 
+                    description: "'token' must be of type string.",
+                    maxLength: 200
+                }
+           },
+           additionalProperties: false
+        }
+    },
+    validationAction: "error",
+    validationLevel: "strict",
+});
