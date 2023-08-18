@@ -1664,4 +1664,39 @@ db.historiales.insertMany([
       "deleted_at": null
     }
 ]);
-  
+
+//🪓🔎Inyeccion de documentos para la coleccion Roles_Api🔎🪓
+
+use("db_Bodegas");
+db.roles_Api.insertMany([
+    {
+      "_id": "CsWscIpEhqmr1987",
+      "rol": "Admin",
+      "acceso": "Acceso completo a los metodos de crud de todas las colecciones solicitadas por el admin"
+    },
+    {
+      "_id": "CsWscYrYwyvemws22501",
+      "rol": "Usuario",
+      "acceso": "Acceso a los metodos GET de todas las colecciones solicitadas por el admin"
+    }
+]);
+
+//🪓🎞️Inyeccion de documentos para la coleccion usuario_Api🎞️🪓
+
+use("db_Bodegas");
+db.usuario_Api.insertMany([
+    {
+      "_id": 1,
+      "nombre": "FredCreations",
+      "email": "juanjoseduranrincon404@gmail.com",
+      "password": "Monochrome1dcg3",
+      "codigo_Rol": "CsWscIpEhqmr1987"
+    },
+    {
+        "_id": 2,
+        "nombre": "Silver",
+        "email": "prueba1@gmail.com",
+        "password": "1234",
+        "codigo_Rol": "CsWscYrYwyvemws22501"
+      }
+]);
