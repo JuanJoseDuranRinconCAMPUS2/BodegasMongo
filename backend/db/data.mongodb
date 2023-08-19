@@ -1686,17 +1686,15 @@ db.roles_Api.insertMany([
 use("db_Bodegas");
 db.usuario_Api.insertMany([
     {
-      "_id": 1,
       "nombre": "FredCreations",
       "email": "juanjoseduranrincon404@gmail.com",
       "password": "Monochrome1dcg3",
       "codigo_Rol": "CsWscIpEhqmr1987"
     },
     {
-        "_id": 2,
-        "nombre": "Silver",
-        "email": "prueba1@gmail.com",
-        "password": "1234",
-        "codigo_Rol": "CsWscYrYwyvemws22501"
-      }
+      "nombre": "Silver",
+      "email": "prueba1@gmail.com",
+      "password": "1234",
+      "codigo_Rol": "CsWscYrYwyvemws22501"
+    }
 ]);
