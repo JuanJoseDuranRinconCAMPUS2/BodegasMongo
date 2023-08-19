@@ -444,9 +444,8 @@ db.createCollection("usuario_Api", {
            title: "usuario_Api Validation",
            properties: {
                 _id: { 
-                    bsonType: "number" , 
-                    description: "'_id' must be of type number",
-                    pattern: "^[1-9][0-9]*$"
+                    bsonType: "objectId" , 
+                    description: "'_id' must be a valid ObjectId"
                 },
 
                 nombre: { 
@@ -479,8 +478,12 @@ db.createCollection("usuario_Api", {
         }
     },
     validationAction: "error",
-    validationLevel: "strict",
+    validationLevel: "strict"
 });
+//indices para evitar usuarios y correos repetidos.
+use("db_Bodegas");
+db.usuario_Api.createIndex({ nombre: 1 }, { unique: true });
+db.usuario_Api.createIndex({ email: 1 }, { unique: true });
 
 //🚧🔎Creacion de la coleccion roles_Api🔎🚧
 
