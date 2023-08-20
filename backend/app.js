@@ -6,23 +6,28 @@ import AppGProductos from './routes/GetProductosXTotal.js';
 import AppProductoInv from './routes/PostProductoInv.js';
 import AppPInven from './routes/PostInventarios.js';
 import AppTransladoProduct from './routes/TransladoProductos.js';
+import AppCrearUsuario from './routes/CrearUsuarios.js';
 console.clear();
 dotnev.config();
 
 const BodegasApi = express();
 BodegasApi.use(express.json());
 
+
+//Rutas de manejo de colecciones
 // ════════ ⋆★⋆ ════════
 BodegasApi.use('/GetBodegas', AppGBodegas);
 BodegasApi.use('/PostBodegas', AppPBodegas);
 BodegasApi.use('/GetProductosXTotal', AppGProductos);
 BodegasApi.use('/PostProductoInventario', AppProductoInv);
-BodegasApi.use('/PostProductoInventario', AppProductoInv);
 BodegasApi.use('/PostInventario', AppPInven);
 BodegasApi.use('/TransladoProductos', AppTransladoProduct);
+// ════════ ⋆★⋆ ════════
 
-
-
+//Rutas de validacion
+// ════════ ⋆★⋆ ════════
+BodegasApi.use('/CrearUsuario', AppCrearUsuario);
+// BodegasApi.use('/IngresarUsuario', );
 // ════════ ⋆★⋆ ════════
 
 const config = JSON.parse(process.env.MY_CONFIG);
