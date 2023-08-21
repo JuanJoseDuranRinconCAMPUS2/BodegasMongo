@@ -25,7 +25,6 @@ AppIngresoUsuario.get('/', limitPColecciones(235, "IngresoUsuario"), proxyValida
       let tokens = {id_usuario_Api}
       tokens.token = jwt
       let result = await tokens_Api.insertOne(tokens)
-      console.log(result);
       res.status(201).send({status: 201, message: jwt, instructions: "En el header de la peticion pon el header 'Authorization' y luego pon esta llave como valor"});
   } catch (error) {
       res.status(404).send({status: 404, message: "Error al crear el Token"});
