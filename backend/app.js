@@ -8,6 +8,7 @@ import AppPInven from './routes/PostInventarios.js';
 import AppTransladoProduct from './routes/TransladoProductos.js';
 import AppCrearUsuario from './routes/CrearUsuarios.js';
 import AppIngresoUsuario from './routes/IngresoUsuario.js';
+import { proxyAutorizacionTk } from './middleware/proxyManejoTokens.js';
 console.clear();
 dotnev.config();
 
@@ -17,12 +18,12 @@ BodegasApi.use(express.json());
 
 //Rutas de manejo de colecciones
 // ════════ ⋆★⋆ ════════
-BodegasApi.use('/GetBodegas', AppGBodegas);
-BodegasApi.use('/PostBodegas', AppPBodegas);
-BodegasApi.use('/GetProductosXTotal', AppGProductos);
-BodegasApi.use('/PostProductoInventario', AppProductoInv);
-BodegasApi.use('/PostInventario', AppPInven);
-BodegasApi.use('/TransladoProductos', AppTransladoProduct);
+BodegasApi.use('/GetBodegas', proxyAutorizacionTk, AppGBodegas);
+BodegasApi.use('/PostBodegas', proxyAutorizacionTk, AppPBodegas);
+BodegasApi.use('/GetProductosXTotal', proxyAutorizacionTk, AppGProductos);
+BodegasApi.use('/PostProductoInventario', proxyAutorizacionTk, AppProductoInv);
+BodegasApi.use('/PostInventario', proxyAutorizacionTk, AppPInven);
+BodegasApi.use('/TransladoProductos', proxyAutorizacionTk, AppTransladoProduct);
 // ════════ ⋆★⋆ ════════
 
 //Rutas de validacion
