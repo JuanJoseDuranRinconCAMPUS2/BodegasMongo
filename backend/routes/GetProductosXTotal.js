@@ -1,11 +1,12 @@
 import { Router } from "express";
 import { limitGColecciones } from "../limit/limit.js";
+import { proxyEndpointVerify } from "../middleware/proxyManejoTokens.js";
 import { con } from '../db/atlas.js';
 
 const AppGProductos = Router();
 let db = await con();
 
-AppGProductos.get('/', limitGColecciones(), async (req, res) =>{
+AppGProductos.get('/', limitGColecciones(), proxyEndpointVerify(0, "GetProductosXTotal"), async (req, res) =>{
     if(!req.rateLimit) return;
     let productos = db.collection("productos");
     let result = await productos.aggregate([
