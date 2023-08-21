@@ -1,0 +1,184 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "BodegasMongoDB",
+    "dateExported": "2023-08-21T21:07:08.790Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "752d739c-ccda-477f-b08a-0953e7c33019",
+            "name": "Usuarios_API",
+            "containerId": "",
+            "created": "2023-08-19T23:42:39.946Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "281d4b1c-b000-4f3d-855e-a3a044d2dc4f",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "ListarBodegas",
+            "url": "http://127.19.8.3:5010/GetBodegas",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-11T11:28:38.602Z",
+            "modified": "2023-08-21T15:32:26.593Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJGcmVkQ3JlYXRpb25zIiwicGFzc3dvcmQiOiJNb25vY2hyb21lMWRjZzMiLCJlbmRQb2ludCI6Ikxpc3RhckJvZGVnYXMiLCJyb2wiOiJBZG1pbiIsImlhdCI6MTY5MjYzMTk0MCwiZXhwIjoxNjkyNjMzNzQwfQ.E95h8xTXrS_LNGOsfywOxkO_YYkNuJBXBFXOgWUUjj4"
+                }
+            ],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2c77bc20-7311-46cf-b119-b70613320ef1",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "PostBodegas",
+            "url": "http://127.19.8.3:5010/PostBodegas",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-11T13:06:53.866Z",
+            "modified": "2023-08-21T15:41:37.338Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJGcmVkQ3JlYXRpb25zIiwicGFzc3dvcmQiOiJNb25vY2hyb21lMWRjZzMiLCJlbmRQb2ludCI6IlBvc3RCb2RlZ2FzIiwicm9sIjoiQWRtaW4iLCJpYXQiOjE2OTI2MzI0MjUsImV4cCI6MTY5MjYzNDIyNX0.2MRbjZKpIs47MSDGzGRXKspcXT0TDbY6Q0-o8rV4HYo"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"identificacion_Bodega\": 54,\n    \"nombre_Bodega\": \"bodega Aurrera\",\n    \"identificacion_Responsable\": 11,\n    \"estado_Bodega\": 1,\n    \"identificacion_Usuario\": 9\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "abd89a72-c4c1-4ce2-91b4-ae31ea3468e7",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "PostProductoInventario",
+            "url": "http://127.19.8.3:5010/PostProductoInventario",
+            "method": "POST",
+            "sortNum": 35000,
+            "created": "2023-08-14T01:55:56.441Z",
+            "modified": "2023-08-21T15:49:36.942Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJGcmVkQ3JlYXRpb25zIiwicGFzc3dvcmQiOiJNb25vY2hyb21lMWRjZzMiLCJlbmRQb2ludCI6IlBvc3RQcm9kdWN0b0ludmVudGFyaW8iLCJyb2wiOiJBZG1pbiIsImlhdCI6MTY5MjYzMjk0MSwiZXhwIjoxNjkyNjM0NzQxfQ.IMJY5fh3U3mgm7ZEe9thPvFFvvVd1Kfaofu3PvrXEiw"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"identificacion_Producto\": 82,\n    \"nombre_Producto\": \"coca cola\",\n    \"descripcion_Producto\": \"una bien fria\",\n    \"estado_Producto\": 1,\n    \"identificacion_Usuario\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f61915c2-ba3e-46b6-8615-2c31cbc5c404",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "PostInventario",
+            "url": "http://127.19.8.3:5010/PostInventario",
+            "method": "POST",
+            "sortNum": 37500,
+            "created": "2023-08-14T03:00:10.080Z",
+            "modified": "2023-08-21T15:50:11.223Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJGcmVkQ3JlYXRpb25zIiwicGFzc3dvcmQiOiJNb25vY2hyb21lMWRjZzMiLCJlbmRQb2ludCI6IlBvc3RJbnZlbnRhcmlvIiwicm9sIjoiQWRtaW4iLCJpYXQiOjE2OTI2MzMwMDQsImV4cCI6MTY5MjYzNDgwNH0.ty6mNTkp3RH8VfyVyb6IZBPMdDed6WkI6tsT8ah-OyQ"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"identificacion_Inventario\": 80,\n    \"identificacion_Bodega\": 11,\n    \"identificacion_Producto\": 20,\n    \"cantidad_Producto\": 100,\n    \"identificacion_Usuario\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "74fdb635-b695-4719-af12-389c3d2386a8",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "TransladoProductos",
+            "url": "http://127.19.8.3:5010/TransladoProductos",
+            "method": "POST",
+            "sortNum": 38750,
+            "created": "2023-08-14T11:46:11.931Z",
+            "modified": "2023-08-21T15:51:42.395Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub21icmUiOiJGcmVkQ3JlYXRpb25zIiwicGFzc3dvcmQiOiJNb25vY2hyb21lMWRjZzMiLCJlbmRQb2ludCI6IlRyYW5zbGFkb1Byb2R1Y3RvcyIsInJvbCI6IkFkbWluIiwiaWF0IjoxNjkyNjMzMDg5LCJleHAiOjE2OTI2MzQ4ODl9.RwqC5RJ5u5D4vDYzzIOFmDngnsZGn5s1O3Mk_-vQPsU"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"identificacion_Historial\": 38,\n    \"identificacion_bodegaOrigen\": 12,\n    \"identificacion_bodegaFinal\": 11,\n    \"identificacion_Producto\": 20,\n    \"cantidad_Producto\" : 10,\n    \"identificacion_Usuario\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d9213641-0a4a-41bf-9ddd-7afad084a993",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "",
+            "name": "GetProductosXTotal",
+            "url": "http://127.19.8.3:5010/GetProductosXTotal",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-08-14T01:23:19.772Z",
+            "modified": "2023-08-14T01:41:17.068Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "fc61a318-4945-46c4-91ec-19f1a2efe008",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "752d739c-ccda-477f-b08a-0953e7c33019",
+            "name": "CrearUsuario",
+            "url": "http://127.19.8.3:5010/CrearUsuario",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-08-19T23:42:55.635Z",
+            "modified": "2023-08-21T20:16:02.908Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n      \"nombre_Usuario\": \"pedro4\",\n      \"correo_Usuario\": \"pedro4@gmail.com\",\n      \"contraseña_Usuario\": \"123\",\n      \"codeRol_Usuario\": \"CsWscIpEhqmr1987\"\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "64618de2-539a-4631-b569-21d22bcc618d",
+            "colId": "636bec37-a964-4359-9c0a-99c229d8f0ee",
+            "containerId": "752d739c-ccda-477f-b08a-0953e7c33019",
+            "name": "IngresoUsuario",
+            "url": "http://127.19.8.3:5010/IngresarUsuario",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2023-08-20T11:14:20.569Z",
+            "modified": "2023-08-21T15:51:38.660Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"nombre_Usuario\" : \"FredCreations\",\n  \"contraseña_Usuario\" : \"Monochrome1dcg3\",\n  \"endPoint_Solicitado\" : \"TransladoProductos\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
