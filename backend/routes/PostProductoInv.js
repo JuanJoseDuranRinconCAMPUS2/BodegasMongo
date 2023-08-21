@@ -3,6 +3,7 @@ import { limitPColecciones } from "../limit/limit.js";
 import { con } from '../db/atlas.js';
 import errorcontroller from "../middleware/ErroresMongo.js";
 import { proxyPProductoInventario } from "../middleware/proxyPProductoInventario.js";
+import { proxyEndpointVerify } from "../middleware/proxyManejoTokens.js";
 
 const AppProductoInv = Router();
 let db = await con();
@@ -11,7 +12,7 @@ let inventarios = db.collection("inventarios");
 let bodegaDefault = 11;
 let cantidadInicial = 1;
 
-AppProductoInv.post('/', limitPColecciones(236, "productos"), proxyPProductoInventario, async (req, res) =>{
+AppProductoInv.post('/', limitPColecciones(236, "productos"), proxyPProductoInventario, proxyEndpointVerify(1, "PostProductoInventario", "Admin"), async (req, res) =>{
     if(!req.rateLimit) return;
     const {_id, created_by} = req.body;
     try {
