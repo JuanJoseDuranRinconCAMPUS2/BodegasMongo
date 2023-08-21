@@ -7,6 +7,7 @@ import AppProductoInv from './routes/PostProductoInv.js';
 import AppPInven from './routes/PostInventarios.js';
 import AppTransladoProduct from './routes/TransladoProductos.js';
 import AppCrearUsuario from './routes/CrearUsuarios.js';
+import AppIngresoUsuario from './routes/IngresoUsuario.js';
 console.clear();
 dotnev.config();
 
@@ -27,7 +28,7 @@ BodegasApi.use('/TransladoProductos', AppTransladoProduct);
 //Rutas de validacion
 // ════════ ⋆★⋆ ════════
 BodegasApi.use('/CrearUsuario', AppCrearUsuario);
-// BodegasApi.use('/IngresarUsuario', );
+BodegasApi.use('/IngresarUsuario', AppIngresoUsuario);
 // ════════ ⋆★⋆ ════════
 
 const config = JSON.parse(process.env.MY_CONFIG);
