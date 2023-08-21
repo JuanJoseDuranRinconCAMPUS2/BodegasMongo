@@ -545,21 +545,18 @@ db.createCollection("tokens_Api", {
            title: "tokens_Api Validation",
            properties: {
                 _id: { 
-                    bsonType: "string" , 
-                    description: "'_id' must be of type string",
-                    pattern: "^[1-9][0-9]*$"
+                    bsonType: "objectId" , 
+                    description: "'_id' must be a valid ObjectId"
                 },
 
                 id_usuario_Api: { 
-                    bsonType: "string" , 
-                    description: "'id_usuario_Api' must be of type string",
-                    pattern: "^[1-9][0-9]*$"
+                    bsonType: "objectId" , 
+                    description: "'id_usuario_Api' must be a valid ObjectId"
                 },
 
                 token: { 
                     bsonType: "string" , 
                     description: "'token' must be of type string.",
-                    maxLength: 200
                 }
            },
            additionalProperties: false
