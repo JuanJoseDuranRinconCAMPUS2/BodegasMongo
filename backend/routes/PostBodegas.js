@@ -2,11 +2,12 @@ import { Router } from "express";
 import { limitPColecciones } from "../limit/limit.js";
 import { con } from '../db/atlas.js';
 import errorcontroller from "../middleware/ErroresMongo.js";
+import { proxyEndpointVerify } from "../middleware/proxyManejoTokens.js";
 import { proxyPBodegas } from "../middleware/proxyPBodegas.js";
 const AppPBodegas = Router();
 let db = await con();
 
-AppPBodegas.post('/', limitPColecciones(235, "bodegas"), proxyPBodegas, async (req, res) =>{
+AppPBodegas.post('/', limitPColecciones(235, "bodegas"), proxyPBodegas, proxyEndpointVerify(1, "PostBodegas", "Admin"),async (req, res) =>{
     if(!req.rateLimit) return;
     let bodegas = db.collection("bodegas");
     try {
