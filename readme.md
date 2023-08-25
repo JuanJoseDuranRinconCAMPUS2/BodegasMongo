@@ -218,7 +218,7 @@ Antes de ejecutar el código, asegúrate:
 
 2. Dentro del archivo `.env`, define las siguientes variables de entorno:
 
-   - MY_CONFIG={"hostname": "127.19.8.7", "port":5010}
+   - MY_CONFIG={"hostname": "127.19.8.3", "port":5010}
    - Atlas_User=""
    - Atlas_Password=""
    - Atlas_DB="db_Bodegas"
@@ -230,11 +230,11 @@ Antes de ejecutar el código, asegúrate:
 
 1. Inicia el servidor:
 2. `npm run dev`
-3. Accede a `http://127.19.8.7:5010` para interactuar con la API.
+3. Accede a `http://127.19.8.3:5010` para interactuar con la API.
 
 ## **🎫🔩Puerto de la Api**🔩🎫
 
-## `http://127.19.8.7:5010`
+## `http://127.19.8.3:5010`
 
 ## **💮🪙Rutas de la API🪙💮**
 
